@@ -12,12 +12,12 @@ class JdphoneItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
 
-    title = scrapy.Field()  # 标题
+    title = scrapy.Field()  
 
-    price = scrapy.Field()  # 价格
+    price = scrapy.Field()  
 
-    comment_num = scrapy.Field()  # 评价条数
+    comment_num = scrapy.Field()  
 
-    url = scrapy.Field()  # 商品链接
+    url = scrapy.Field()  
 
-    info = scrapy.Field()  # 详细信息
+    info = scrapy.Field()  
