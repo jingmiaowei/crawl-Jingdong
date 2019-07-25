@@ -6,7 +6,7 @@ import sys
 
 class JdSpider(scrapy.Spider):
     name = 'jd'
-    allowed_domains = ['jd.com']  # 有的时候写个www.jd.com会导致search.jd.com无法爬取
+    allowed_domains = ['jd.com']  
     keyword = "三星手机"
     page = 1
     url = 'https://search.jd.com/Search?keyword=%s&enc=utf-8&qrst=1&rt=1&stop=1&vt=2&wq=%s&cid2=653&cid3=655&page=%d&click=0'
@@ -25,13 +25,13 @@ class JdSpider(scrapy.Spider):
         for li in response.xpath('//*[@id="J_goodsList"]/ul/li'):
             item = JdphoneItem()
 
-            title = li.xpath('div/div/a/em/text()').extract()  # 标题
-            price = li.xpath('div/div/strong/i/text()').extract()  # 价格
-            comment_num = li.xpath('div/div/strong/a/text()').extract()  # 评价条数
-            id = li.xpath('@data-pid').extract()  # id
+            title = li.xpath('div/div/a/em/text()').extract()  
+            price = li.xpath('div/div/strong/i/text()').extract()  
+            comment_num = li.xpath('div/div/strong/a/text()').extract()  
+            id = li.xpath('@data-pid').extract()  
             ids.append(''.join(id))
 
-            url = li.xpath('div/div[@class="p-name p-name-type-2"]/a/@href').extract()  # 需要跟进的链接
+            url = li.xpath('div/div[@class="p-name p-name-type-2"]/a/@href').extract()  
 
             item['title'] = ''.join(title)
             item['price'] = ''.join(price)
@@ -62,10 +62,10 @@ class JdSpider(scrapy.Spider):
         """
         for li in response.xpath('//li[@class="gl-item"]'):
             item = JdphoneItem()
-            title = li.xpath('div/div/a/em/text()').extract()  # 标题
-            price = li.xpath('div/div/strong/i/text()').extract()  # 价格
-            comment_num = li.xpath('div/div/strong/a/text()').extract()  # 评价条数
-            url = li.xpath('div/div[@class="p-name p-name-type-2"]/a/@href').extract()  # 需要跟进的链接
+            title = li.xpath('div/div/a/em/text()').extract()  
+            price = li.xpath('div/div/strong/i/text()').extract()  
+            comment_num = li.xpath('div/div/strong/a/text()').extract()  
+            url = li.xpath('div/div[@class="p-name p-name-type-2"]/a/@href').extract()  
 
             item['title'] = ''.join(title)
             item['price'] = ''.join(price)
