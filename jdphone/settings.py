@@ -11,3 +11,16 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
+
+
+MONGODB_HOST = '127.0.0.1'
+
+MONGODB_POST = 27017
+
+MONGODB_DBNAME = 'JingDong'
+
+MONGODB_COL = 'JingDongPhone'
+
+ITEM_PIPELINES = {
+   'jdphone.pipelines.JdphonePipeline': 300,
+}
